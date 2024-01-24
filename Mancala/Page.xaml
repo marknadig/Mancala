@@ -1,0 +1,59 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="Mancala.Page"
+	Width="640" Height="480" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" HorizontalAlignment="Left" VerticalAlignment="Top" xmlns:Mancala="clr-namespace:Mancala">
+	<UserControl.Resources>
+		<Storyboard x:Name="ShowBoard">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="board" Storyboard.TargetProperty="(UIElement.Opacity)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Image HorizontalAlignment="Left" Margin="45.004,76.157,0,230.843" Width="558.401" Source="mancala.png" Stretch="None" x:Name="board" Opacity="0.5"/>
+		<TextBlock Height="24" HorizontalAlignment="Left" Margin="45.254,16,0,0" x:Name="player1" VerticalAlignment="Top" Width="58.746" Text="Player 1:" TextWrapping="Wrap" d:LayoutOverrides="Width" RenderTransformOrigin="0.5,0.5">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="-4"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+		<TextBlock Height="24" HorizontalAlignment="Right" Margin="0,16,187,0" x:Name="player2" VerticalAlignment="Top" Width="64" Text="Player 2:" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="-4"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+		<TextBox Height="24" HorizontalAlignment="Left" Margin="108.254,16,0,0" x:Name="player1Name" VerticalAlignment="Top" Width="120" Text="" TextWrapping="Wrap"/>
+		<TextBox Height="24" HorizontalAlignment="Right" Margin="0,16,50,0" x:Name="player2Name" VerticalAlignment="Top" Width="128" Text="" TextWrapping="Wrap"/>
+		<TextBlock Height="24" Margin="45.254,40,50,0" x:Name="lblStatus" VerticalAlignment="Top" Foreground="#FFEE1616" Text="        " TextWrapping="Wrap" TextAlignment="Center"/>
+		<TextBlock Height="128" Margin="55.364,0,36.636,80" x:Name="commentary" VerticalAlignment="Bottom" Text="Commentary" TextWrapping="Wrap" d:IsStaticText="True"/>
+		<Button Height="24" HorizontalAlignment="Right" Margin="0,0,36.636,32" x:Name="btnUndo" VerticalAlignment="Bottom" Width="51.364" Content="Undo" d:LayoutOverrides="Width" IsEnabled="False"/>
+		<Mancala:bucket Height="50" HorizontalAlignment="Left" Margin="125,103,0,0" VerticalAlignment="Top" Width="50" x:Name="bucket6"/>
+		<Mancala:bucket HorizontalAlignment="Left" Margin="65,101,0,0" Width="54" VerticalAlignment="Top" Height="120" x:Name="player1Mancala"/>
+		<Mancala:bucket HorizontalAlignment="Right" Margin="0,101,64,0" Width="54" Height="120" x:Name="player2Mancala" VerticalAlignment="Top"/>
+		<Mancala:bucket Height="50" HorizontalAlignment="Left" Margin="184,103,0,0" VerticalAlignment="Top" Width="50" x:Name="bucket5"/>
+		<Mancala:bucket Height="50" HorizontalAlignment="Left" Margin="243,103,0,0" VerticalAlignment="Top" Width="50" x:Name="bucket4"/>
+		<Mancala:bucket Height="50" Margin="0,103,246,0" VerticalAlignment="Top" x:Name="bucket3" Width="50" HorizontalAlignment="Right"/>
+		<Mancala:bucket Height="50" Margin="0,103,187,0" VerticalAlignment="Top" x:Name="bucket2" Width="50" HorizontalAlignment="Right"/>
+		<Mancala:bucket Height="50" Margin="0,103,128,0" VerticalAlignment="Top" x:Name="bucket1" Width="50" HorizontalAlignment="Right"/>
+		<Mancala:bucket Height="50" HorizontalAlignment="Left" Margin="125,171,0,0" VerticalAlignment="Top" Width="50" x:Name="bucket7"/>
+		<Mancala:bucket Height="50" HorizontalAlignment="Left" Margin="185,171,0,0" VerticalAlignment="Top" Width="50" x:Name="bucket8"/>
+		<Mancala:bucket Height="50" HorizontalAlignment="Left" Margin="245,171,0,0" VerticalAlignment="Top" Width="50" x:Name="bucket9"/>
+		<Mancala:bucket Height="50" Margin="0,171,246,0" VerticalAlignment="Top" x:Name="bucket10" Width="50" HorizontalAlignment="Right"/>
+		<Mancala:bucket Height="50" Margin="0,171,187,0" VerticalAlignment="Top" x:Name="bucket11" Width="50" HorizontalAlignment="Right"/>
+		<Mancala:bucket Height="50" Margin="0,171,128,0" VerticalAlignment="Top" x:Name="bucket12" Width="50" HorizontalAlignment="Right"/>
+		<MediaElement Height="0" HorizontalAlignment="Left" Margin="104.254,0,0,136" x:Name="click_mp3" VerticalAlignment="Bottom" Width="0" Source="click.mp3" Stretch="Fill" AutoPlay="False"/>
+		<MediaElement Height="0" HorizontalAlignment="Left" Margin="152,0,0,32" x:Name="drop_mp3" VerticalAlignment="Bottom" Width="0" Source="drop.mp3" Stretch="Fill" AutoPlay="False"/>
+		<Button Height="20.157" HorizontalAlignment="Right" Margin="0,56,50,0" VerticalAlignment="Top" Width="70" Content="Start" d:LayoutOverrides="Height" x:Name="btnStart"/>
+	</Grid>
+</UserControl>
